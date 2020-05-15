@@ -20,9 +20,18 @@ phone_regex = re.compile(r'''
 
 # TODO: Create a regex for emails
 email_regex = re.compile(r"""
+# something.+_things@something.com
 
+[a-zA-Z0-9_.+]+            # name part
+@            # @ symbol
+[a-zA-Z0-9_.+]+             @ domain name part
 
-""", re.VERBOSE
+""", re.VERBOSE)
 # TODO: Get the text off the clipboard
+text = pyperclip.paste()
+                       
+                         
 # TODO: Extract the email/phone form this text
+extracted_phone = phone_regex.findall(text)
+extracted_email = email_regex.findall(text)                         
 # TODO: Copy the extracted email/phone to the clipboard
